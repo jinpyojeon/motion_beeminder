@@ -6,20 +6,13 @@ import imutils
 import time
 import cv2
 
-def detect_motion(frame):
-
-    if not frame:
-        break
+def display_motion(frame):
 
     frame = imutils.resize(frame, width=500)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     gray = cv2.GaussianBlur(gray, (21, 21), 0)
 
-    if firstFrame is None:
-        firstFrame = gray
-        continue
-
-    frameDelta = cv2.absdiff(firstFrame, gray)
+    frameDelta = cv2.absdiff(frame, gray)
     thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1]
 
     thresh = cv2.dilate(thresh, None, iterations=2)
