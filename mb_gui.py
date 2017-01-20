@@ -9,25 +9,21 @@ from PyQt4.QtCore import *
     
 from motion_detection import *
 
-a = QApplication(sys.argv)
-camera = cv2.VideoCapture(0)
-time.sleep(0.25)
+def main():
+    a = QApplication(sys.argv)
+    w.setWindowTitle("Motion Detection Beeminder")
 
-w = QWidget()
-w.resize(500, 300)
-w.setWindowTitle("Motion Detection Beeminder")
-
-w.show()
-
-while True:
-    (grabbed, frame) = camera.read()
+    w.resize(500, 300)
     
-    if not grabbed:
-        break
+    capture = Capture()
 
-    frame = display_motion(frame)
+    self.quit_button = QtGui.QPushButton('Quit', self)
+    self.quit_button.clicked.connect(self.capture.quitCapture)
 
-camera.release()
-sys.exit(a.exec_())
+    w.show()
 
+    sys.exit(a.exec_())
 
+if __name__ == '__main__':
+    main()
+    
