@@ -53,7 +53,6 @@ class User(object):
             req = requests.put(
                 '{}/api/v1/users/me.json'.format(self.beeminder_url),
                 data={'goal_name': self.goal_name, 'yaxis': str(min)})
-            )
             req.raise_for_status()
         
 
