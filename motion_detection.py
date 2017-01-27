@@ -30,7 +30,7 @@ class Capture():
 
     def startCapture(self):
         capture = self.capture
-        
+
         while(self.is_capturing):
             prev_frame = cv2.cvtColor(capture.read()[1], cv2.COLOR_RGB2GRAY)
             next_frame = cv2.cvtColor(capture.read()[1], cv2.COLOR_RGB2GRAY)
